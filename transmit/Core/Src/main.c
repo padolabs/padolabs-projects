@@ -33,10 +33,10 @@ enum senha{INCORRETA, CORRETA};
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 	uint8_t row[4] = {0};
-	//uint8_t XY[2] = {0};
 	uint8_t button = 0, i  = 0, validacao = 0;
 	uint8_t senha[4] = {0}, senhaDefinida[4] = {1,2,3,4};
 	uint8_t data_array[4];
+	uint8_t teste = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -66,9 +66,8 @@ static void MX_TIM2_Init(void);
 
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
-		 //NRF TRANSMIT -------------------
+		  //NRF TRANSMIT -------------------
 		  HAL_GPIO_WritePin(led_GPIO_Port, led_Pin, GPIO_PIN_SET);
-		  //data_array[0]++;
 		  data_array[0] = validacao;
 		  nrf24_send(data_array);
 		  HAL_GPIO_WritePin(led_GPIO_Port, led_Pin, GPIO_PIN_RESET);
@@ -79,7 +78,7 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t tx_address[5] = {0xE7,0xE7,0xE7,0xE7,0xE7};
+uint8_t tx_address[5] = {0xA0,0xA0,0xA0,0xA0,0xA0};
 uint8_t rx_address[5] = {0xD7,0xD7,0xD7,0xD7,0xD7};
 
 
@@ -116,7 +115,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   nrf24_init();
-
+  HAL_TIM_Base_Start_IT(&htim2);
   nrf24_config(2, 1);
 
 	nrf24_tx_address(tx_address);
@@ -168,7 +167,7 @@ int main(void)
 			HAL_GPIO_WritePin(R4_GPIO_Port, R4_Pin, row[3]);
 
 			//testa as coluna da linha selecionada;
-			if (HAL_GPIO_ReadPin(C1_GPIO_Port, C1_Pin)) {
+			if(HAL_GPIO_ReadPin(C1_GPIO_Port, C1_Pin)) {
 				button = x*4;
 				i++;
 				while(HAL_GPIO_ReadPin(C1_GPIO_Port, C1_Pin));
@@ -197,7 +196,7 @@ int main(void)
 
 			uint8_t verifica[4] = {0};
 
-			//roda por cada digito comparando com a senhaDefinida;
+			//roda por cada digito comparando com a senhaDefinida
 			for (int cont = 0; cont < 4; cont++) {
 
 				if (senha[cont] == senhaDefinida[cont]) {
