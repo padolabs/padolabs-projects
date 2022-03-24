@@ -17,13 +17,14 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdint.h>
-/*#include "pwm.h"
-#include "app.h"*/
+
+#include "app.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,15 +44,16 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
-
 TIM_HandleTypeDef htim2;
 
+
 /* USER CODE BEGIN PV */
-uint16_t conta = 1;
-uint16_t flag = 0;
-uint16_t vel = 0;
-uint32_t value;
-float  cr;
+
+extern uint16_t conta;
+extern uint16_t flag;
+extern uint16_t vel;
+extern uint32_t value;
+extern float  cr;
 
 /* USER CODE END PV */
 
@@ -67,46 +69,6 @@ static void MX_DMA_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void HAL_ADC_ConvCpltcallback(ADC_HandleTypeDef *hadc){
-
-	value = HAL_ADC_GetValue(&hadc1);
-}
-
-
-void PWM_Set_DC_(TIM_HandleTypeDef *timer, uint32_t channel, uint8_t dc){
-	uint32_t arr, ccrx;
-
-	arr = __HAL_TIM_GET_AUTORELOAD(timer);
-	if(dc <= 100){
-		ccrx = arr*dc/100;
-		__HAL_TIM_SET_COMPARE(timer, channel, ccrx);
-	}
-}
-void  HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin){
-
-	if (conta == 1)
-	{
-		PWM_Set_DC_(&htim2, TIM_CHANNEL_2, 0);
-		conta ++;
-		vel = 1;
-	}
-	else if (conta == 2){
-		PWM_Set_DC_(&htim2, TIM_CHANNEL_2, 25);
-		conta ++;
-		vel = 2;
-	}
-else if (conta == 3){
-		PWM_Set_DC_(&htim2, TIM_CHANNEL_2, 50);
-		conta ++;
-		vel = 3;
-	}
-	else if (conta == 4){
-		PWM_Set_DC_(&htim2, TIM_CHANNEL_2, 100);
-		conta = 1;
-		vel = 4;
-
-	}
-}
 /* USER CODE END 0 */
 
 /**
@@ -141,12 +103,9 @@ int main(void)
   MX_TIM2_Init();
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
-  /*app_init();
-  app_run();*/
-HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-/*PWM_Set_DC_(&htim2, channel, dc);
-HAL_GPIO_EXTI_Rising_Callback(GPIO_Pin);*/
-HAL_ADCEx_Calibration_Start(&hadc1);
+
+  app_init();
+  app_run();
 
   /* USER CODE END 2 */
 
@@ -155,24 +114,24 @@ HAL_ADCEx_Calibration_Start(&hadc1);
   while (1)
   {
 	  //HAL_ADC_ConfigChannel(ADC_HandleTypeDef *hadc, ADC_ChannelConfTypeDef *pConfig);
-  value = 0;
+  /*value = 0;
 	  for(int i = 0;i < 250; i++ ){
 		  HAL_ADC_Start(&hadc1); // start adc conversion
 
 
 		  	  HAL_ADC_PollForConversion(&hadc1, 100); // aguarda o fim da conversão
 
-		  	  value += HAL_ADC_GetValue(&hadc1);//obtém valor do registrador de resultados ADC
+		  	  value += HAL_ADC_GetValue(&hadc1);//obtém valor do registrador de resultados ADC*/
 
 
 
-}
-	  value = value/250;
+//}
+	  //value = value/250;
 //	  value = HAL_ADC_GetValue(&hadc1);//obtém valor do registrador de resultados ADC
 
 
 
-	  cr = (3.3 / 4095) * value;
+	  //cr = (3.3 / 4095) * value;
 	 //cr = 3-(value*1000);
 
     /* USER CODE END WHILE */
@@ -419,4 +378,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
