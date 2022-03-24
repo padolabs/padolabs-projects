@@ -21,11 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdint.h>
-
-#include "string.h"
-
-#include "nrf24.h"
+#include "app.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +42,7 @@
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
-
+extern uint8_t data_array[4];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,13 +55,7 @@ static void MX_SPI1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t data_array[4];	/* dados recebidos */
 
-/* endereço para mandar dados */
-uint8_t tx_address[5] = {0xE7,0xE7,0xE7,0xE7,0xE7};
-
-/* endereço para receber dados */
-uint8_t rx_address[5] = {0xA0,0xA0,0xA0,0xA0,0xA0};
 /* USER CODE END 0 */
 
 /**
@@ -98,31 +88,15 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  nrf24_init();
+  app_init();
 
-  nrf24_config(2, 1);
-
-  nrf24_tx_address(tx_address);
-  nrf24_rx_address(rx_address);
-
+  app_run();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  /* se nrf24 estiver se comunicando */
-	  if(nrf24_dataReady())
-	  {
-		  /* recebe dados enviados */
-		  nrf24_getData(data_array);
-
-		  /* a cada dados recebido o led acende */
-		  HAL_GPIO_WritePin(led_GPIO_Port, led_Pin, 1);
-		  HAL_Delay(50);
-		  HAL_GPIO_WritePin(led_GPIO_Port, led_Pin, 0);
-	  }
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
