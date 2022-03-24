@@ -28,20 +28,9 @@
 
 	void app_run(){
 
-//		//variaveis teclado;
-//		uint8_t row[4] = {0};
-//		uint8_t button = 0, i  = 0, validacao = 0;
-//		uint8_t senha[4] = {0}, senhaDefinida[4] = {1,2,3,4};
-//
-//		//nrf
-//		uint8_t data_array[4];
-//		uint8_t sendFlag = 0;
-//		uint8_t tx_address[5] = {0xA0,0xA0,0xA0,0xA0,0xA0};
-//		uint8_t rx_address[5] = {0xD7,0xD7,0xD7,0xD7,0xD7};
 
 		nrf24_init();
 		nrf24_config(2, 1);
-
 		nrf24_tx_address(tx_address);
 		nrf24_rx_address(rx_address);
 
