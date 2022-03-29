@@ -2,6 +2,7 @@
 #define __ST7920_SERIAL_H
 
 
+
 #include "stdint.h"
 
 uint8_t image[(128 * 64)/8];
@@ -34,7 +35,6 @@ void ST7920_GraphicMode (int enable);
 // clear screen in any mode
 void ST7920_Clear();
 
-
 // Draw bitmap on the display
 void ST7920_DrawBitmap(const unsigned char* graphic);
 
@@ -57,7 +57,14 @@ void ST7920_Init (void);
 // Set a pixel on the display
 void SetPixel(uint8_t x, uint8_t y);
 
+//draw a blank screen
+void DrawBlankScreen(void);
 
+// draw all screen
+void DrawFullScreen(void);
+
+//anim a slide
+void SlideAnimation(void);
 
 // draw line from (X0, Y0) to (X1, Y1)
 void DrawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
@@ -95,4 +102,3 @@ void DrawFilledTriangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint
 
 
 #endif
-
