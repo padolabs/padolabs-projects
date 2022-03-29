@@ -269,6 +269,32 @@ void SetPixel(uint8_t x, uint8_t y)
 
 }
 
+/* draw all screen */
+
+void DrawBlankScreen(void){
+	for (uint16_t var = 0; var < 1024; ++var) {
+		image[var] = 0;
+	}
+}
+
+void DrawFullScreen(void){
+	for (uint8_t x = 0; x < numCols; ++x) {
+		for (uint8_t y = 0; y < numRows; ++y) {
+			SetPixel(x, y);
+		}
+	}
+}
+
+void SlideAnimation(void){
+	  DrawBlankScreen();
+	  ST7920_Update();
+	  HAL_Delay(20);
+
+	  DrawFullScreen();
+	  ST7920_Update();
+	  HAL_Delay(20);
+}
+
 /* draw a line
  * start point (X0, Y0)
  * end point (X1, Y1)
