@@ -20,5 +20,6 @@ enum senha{INCORRETA, CORRETA};
 
 void app_init();
 void app_run();
+char read_keypad (void);
 
 #endif /* APP_H_ */
