@@ -21,6 +21,9 @@
 	uint8_t tx_address[5] = {0xA0,0xA0,0xA0,0xA0,0xA0};
 	uint8_t rx_address[5] = {0xD7,0xD7,0xD7,0xD7,0xD7};
 
+	//lcd
+	uint16_t app;
+	uint16_t app_t;
 
 	uint8_t autentica(uint8_t senha[4], uint8_t senhaCorreta[4]){
 
@@ -40,7 +43,7 @@
 
 	void __init_application(){
 
-	//	  memset(&app, 0, sizeof(app_t));
+		  //memset(&app, 0, sizeof(app_t));
 
 		  HAL_TIM_Base_Start(&htim1);
 		  lcd_attr_gpio(LCD_RS, LCD_RS_GPIO_Port, LCD_RS_Pin);
@@ -53,15 +56,12 @@
 		  lcd_attr_gpio(LCD_D7, LCD_D7_GPIO_Port, LCD_D7_Pin);
 
 		  lcd_init();
-		  lcd_put_cur(0, 0);
-		  lcd_send_string("Corrente:");
-		  lcd_send_string("482588959");
+		  lcd_clear();
+		  lcd_send_string("nice");
 		  lcd_put_cur(1, 0);
-		  lcd_send_string("Tensao:");
-		  HAL_Delay(1000);
-		  lcd_send_string("482548959");
-		  lcd_put_cur(1, 0);
+
 	}
+
 
 	void app_init(){
 
@@ -70,6 +70,7 @@
 		nrf24_tx_address(tx_address);
 		nrf24_rx_address(rx_address);
 		__init_application();
+
 
 	}
 
@@ -81,76 +82,76 @@
 
 
 
-//			//testa as coluna da linha selecionada;
-//			if(col == 1) {
-//				button = x*4;
-//				col = 0;
-//				senha[i] = button;
-//				i++;
-//			}
-//			else if(col == 2){
-//				button = 1+x*4;
-//				col = 0;
-//				senha[i] = button;
-//				i++;
-//			}
-//			else if(col == 3){
-//				button = 2+x*4;
-//				col = 0;
-//				senha[i] = button;
-//				i++;
-//			}
-//			else if(col == 4){
-//
-//				if (x == 3) {
-//					i = 0;
-//				}else{
-//					button = 3+x*4;
-//					senha[i] = button;
-//					i++;
-//				}
-//				col = 0;
-//			}
-//
-//			//MATRIZ 4x4 ---------------------
-//			x++;
-//			if (x == 4) {
-//				x = 0;
-//			}
-//
-//			//se for na linha x
-//			switch(x){
-//				//verifica linha 0
-//				case 0:
-//					row[0] = 0;
-//					row[3] = 1;
-//					break;
-//				//verifica linha 1
-//				case 1:
-//					row[1] = 0;
-//					row[0] = 1;
-//					break;
-//				//verifica linha 2
-//				case 2:
-//					row[2] = 0;
-//					row[1] = 1;
-//					break;
-//				//verifica linha 3
-//				case 3:
-//					row[3] = 0;
-//					row[2] = 1;
-//					break;
-//				default:
-//				break;
-//				}
-//
-//			//ativa linha de acordo com o switch acima;
+			//testa as coluna da linha selecionada;
+			if(col == 1) {
+				button = x*4;
+				col = 0;
+				senha[i] = button;
+				i++;
+			}
+			else if(col == 2){
+				button = 1+x*4;
+				col = 0;
+				senha[i] = button;
+				i++;
+			}
+			else if(col == 3){
+				button = 2+x*4;
+				col = 0;
+				senha[i] = button;
+				i++;
+			}
+			else if(col == 4){
+
+				if (x == 3) {
+					i = 0;
+				}else{
+					button = 3+x*4;
+					senha[i] = button;
+					i++;
+				}
+				col = 0;
+			}
+
+			//MATRIZ 4x4 ---------------------
+			x++;
+			if (x == 4) {
+				x = 0;
+			}
+
+			//se for na linha x
+			switch(x){
+				//verifica linha 0
+				case 0:
+					row[0] = 0;
+					row[3] = 1;
+					break;
+				//verifica linha 1
+			case 1:
+					row[1] = 0;
+					row[0] = 1;
+					break;
+				//verifica linha 2
+				case 2:
+					row[2] = 0;
+					row[1] = 1;
+					break;
+				//verifica linha 3
+				case 3:
+					row[3] = 0;
+					row[2] = 1;
+					break;
+				default:
+				break;
+				}
+
+			//ativa linha de acordo com o switch acima;
 //			HAL_GPIO_WritePin(R1_GPIO_Port, R1_Pin, row[0]);
 //			HAL_GPIO_WritePin(R2_GPIO_Port, R2_Pin, row[1]);
 //			HAL_GPIO_WritePin(R3_GPIO_Port, R3_Pin, row[2]);
 //			HAL_GPIO_WritePin(R4_GPIO_Port, R4_Pin, row[3]);
-//
-//			HAL_Delay(75);
+
+			HAL_Delay(75);
 
 			//se tiver 4 digitos
 			if(i == 4){
@@ -177,6 +178,8 @@
 				i = 0;
 
 			}
+
+
 
 			//se senha for correta
 			if(sendFlag == 1){

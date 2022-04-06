@@ -64,12 +64,6 @@ uint8_t nrf24_ReadReg (uint8_t Reg);
 #define LCD_D6_GPIO_Port GPIOA
 #define LCD_D5_Pin GPIO_PIN_0
 #define LCD_D5_GPIO_Port GPIOB
-#define C2_Pin GPIO_PIN_14
-#define C2_GPIO_Port GPIOB
-#define C2_EXTI_IRQn EXTI4_15_IRQn
-#define C1_Pin GPIO_PIN_8
-#define C1_GPIO_Port GPIOA
-#define C1_EXTI_IRQn EXTI4_15_IRQn
 #define LCD_RW_Pin GPIO_PIN_9
 #define LCD_RW_GPIO_Port GPIOA
 #define LCD_D4_Pin GPIO_PIN_7
@@ -78,12 +72,12 @@ uint8_t nrf24_ReadReg (uint8_t Reg);
 #define CE_GPIO_Port GPIOD
 #define CSN_Pin GPIO_PIN_9
 #define CSN_GPIO_Port GPIOD
-#define LCD_D7_Pin GPIO_PIN_8
-#define LCD_D7_GPIO_Port GPIOC
 #define LCD_E_Pin GPIO_PIN_4
 #define LCD_E_GPIO_Port GPIOB
 #define LCD_RS_Pin GPIO_PIN_5
 #define LCD_RS_GPIO_Port GPIOB
+#define LCD_D7_Pin GPIO_PIN_10
+#define LCD_D7_GPIO_Port GPIOC
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
