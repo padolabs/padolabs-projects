@@ -51,21 +51,24 @@ TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
 
-
 //Lora
 LoRa myLoRa;
+uint32_t packet_size =0;
+uint8_t received_data=0;
 uint8_t read_data[128];
 uint8_t send_data;
 int			RSSI;
 uint16_t teste;
-uint8_t flag=0;
+uint8_t flag=0, flagLORA=0, verificacao=0;
 
 //lcd
 uint16_t app;
 uint16_t app_t;
+uint16_t flagDILSON=0;
 
 char i[20] = {"teste"};
 
+uint32_t tick1, tick2;
 //infravermelho:
 
 typedef enum{
@@ -92,7 +95,7 @@ botoes_e recebeu;
 
 uint32_t data, contagem;
 uint16_t micros;
-uint8_t recebeu, corrente=5;
+uint8_t recebeu, corrente=5, cont=0;
 float delay;
 
 
@@ -110,8 +113,9 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin){
-	 lcd_clear();
+void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin){
+	flagDILSON=1;
+
 }
 void __init_application(){
 	  memset(&app, 0, sizeof(app_t));
@@ -136,13 +140,14 @@ void __init_application(){
 }
 
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim2)
+/*void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim2)
 {
 	if(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==0)
 		  {
 				flag = 1;
 		  }
-}
+	flagLORA=1;
+}*/
 
 
 void delay_us  ( uint16_t us)
@@ -152,46 +157,45 @@ void delay_us  ( uint16_t us)
 	//return us;
 }
 
+uint32_t recebendo_data()
+{
+	uint32_t teste;
+	//HAL_TIM_Base_Stop_IT(&htim2);
+	while((HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin))==0);
+	while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
 
-	uint32_t recebendo_data()
-	{
-		uint32_t teste;
-		HAL_TIM_Base_Stop_IT(&htim2);
-		while((HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin))==0);
-		while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
-
-		 for(int i = 0; i < 32; i++)
-		 	 {
-			 	 while((HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin))==0);
-				 contagem=0;
-				 while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1)
+	 for(int i = 0; i < 32; i++)
+		 {
+			 while((HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin))==0);
+			 contagem=0;
+			 while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1)
+			 {
+			 contagem++;
+			 if(contagem>=200)
 				 {
-				 contagem++;
-				 if(contagem>=200)
-				 	 {
-					 	 HAL_TIM_Base_Start_IT(&htim2);
-					 	 flag=0;
-						 return(0);
-					 }
-				 delay_us(100);
+					 //HAL_TIM_Base_Start_IT(&htim2);
+					 //flag=0;
+					 return(0);
 				 }
+			 delay_us(100);
+			 }
 
-				 if(contagem > 12)
-				 {
-					 teste |= (1UL << (31-i));
-				 }
+			 if(contagem > 12)
+			 {
+				 teste |= (1UL << (31-i));
+			 }
 
-			  	else
-			  	{
-			  		teste &= ~ (1UL << (31-i));
-			  	}
-		 	 }
+			else
+			{
+				teste &= ~ (1UL << (31-i));
+			}
+		 }
 
-		 flag=0;
-		 HAL_TIM_Base_Start_IT(&htim2);
+	 //flag=0;
+	 //HAL_TIM_Base_Start_IT(&htim2);
 
-		 return teste;
-	}
+	 return teste;
+}
 
 
 void convert_code (uint32_t code)
@@ -218,12 +222,16 @@ void convert_code (uint32_t code)
 			recebeu = BOTAO_4;
 			break;
 
-		case (0xff18e7):
+		case (0x807f8c73):
 			recebeu = BOTAO_5;
+		verificacao=LoRa_transmit(&myLoRa, &recebeu, 1 , 100);
+				//HAL_Delay(50);
 			break;
 
-		case (0xff7a85):
+		case (0x807fbd42):
 			recebeu = BOTAO_6;
+		verificacao=LoRa_transmit(&myLoRa, &recebeu, 1 , 100);
+				//HAL_Delay(50);
 			break;
 
 		case (0xff10ef):
@@ -238,8 +246,14 @@ void convert_code (uint32_t code)
 			recebeu = BOTAO_9;
 			break;
 
-		case (0xff02fd):
+		case (0x807f817e):
 			recebeu = OK;
+		verificacao=LoRa_transmit(&myLoRa, &recebeu, 1 , 100);
+				//HAL_Delay(100);
+		cont++;
+		if(cont>1){
+			cont=0;
+		}
 			break;
 
 		case (0xffa857):
@@ -270,7 +284,7 @@ void convert_code (uint32_t code)
 			break;
 		}
 
-	LoRa_transmit(&myLoRa, &recebeu, 1 , 100);
+
 }
 
 /* USER CODE END 0 */
@@ -330,23 +344,56 @@ myLoRa = newLoRa();
  	myLoRa.preamble				       = 10;		  					// default = 8;
 
  	teste=LoRa_init(&myLoRa);
+
+ 	LoRa_startReceiving(&myLoRa);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-	 delay_us(10);
-	 sprintf((char*)meuTexto, "Corrent: %d", corrente);
-	 lcd_put_cur(0,0);
-	 lcd_send_string(meuTexto);
-
-	  if(flag == 1)
+	  if(flagDILSON==1)
 	  {
+
+		  HAL_NVIC_DisableIRQ(EXTI4_15_IRQn);
 		  data = recebendo_data ();
 		  convert_code (data);
+		  HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 	  }
+	  flagDILSON=0;
+
+	  //tick1 = HAL_GetTick();
+	  HAL_NVIC_DisableIRQ(EXTI4_15_IRQn);
+	 HAL_Delay(100);
+	 packet_size = LoRa_receive(&myLoRa, &received_data, 1);
+	  HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
+
+	  if(packet_size!=0)
+	  {
+		  sprintf((char*)meuTexto,"Corrente: %d mA  ", received_data);
+		  lcd_put_cur(2,0);
+		  lcd_send_string(meuTexto);
+		  //packet_size = 0;
+	  }
+	  if(cont == 0)
+	  {
+
+
+		  sprintf((char*)meuTexto,"Desligado");
+		  		  		  lcd_put_cur(1,0);
+		  		  		  lcd_send_string(meuTexto);
+		  		  		  cont=0;
+	  }
+	  else{
+		  sprintf((char*)meuTexto,"Ligado   ");
+		  		  lcd_put_cur(1,0);
+		  		  lcd_send_string(meuTexto);
+	  }
+	  //tick2 = HAL_GetTick()-tick1;
+
+
+	 //delay_us(10);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -566,7 +613,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : infra_Pin */
   GPIO_InitStruct.Pin = infra_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(infra_GPIO_Port, &GPIO_InitStruct);
 

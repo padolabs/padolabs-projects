@@ -1,0 +1,1801 @@
+17:31:51 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:31:54 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:36:48 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:363:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  363 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  20036	    120	   2128	  22284	   570c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:37:41 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:363:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  363 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:38:09 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:363:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  363 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  20036	    120	   2128	  22284	   570c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:39:20 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:363:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  363 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  20144	    120	   2128	  22392	   5778	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:40:00 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:363:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  363 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  20144	    120	   2128	  22392	   5778	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+13:51:19 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:363:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  363 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+13:54:51 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+13:58:26 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:365:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  365 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:00:33 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:01:35 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:03:58 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:04:45 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21412	    120	   2128	  23660	   5c6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:06:41 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  20144	    120	   2128	  22392	   5778	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:07:31 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  20488	    120	   2128	  22736	   58d0	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:07:50 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21104	    120	   2128	  23352	   5b38	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:09:07 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21376	    120	   2128	  23624	   5c48	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:11:00 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21396	    120	   2128	  23644	   5c5c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:21:19 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21424	    120	   2128	  23672	   5c78	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:24:22 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21420	    120	   2128	  23668	   5c74	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:25:47 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21424	    120	   2128	  23672	   5c78	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:41:02 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:364:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  364 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21424	    120	   2128	  23672	   5c78	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:51:51 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:365:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  365 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21432	    120	   2128	  23680	   5c80	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+14:55:35 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21432	    120	   2128	  23680	   5c80	LCD2.elf
+Finished building: default.size.stdout
+ 
+15:19:34 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21432	    120	   2128	  23680	   5c80	LCD2.elf
+Finished building: default.size.stdout
+ 
+15:37:33 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:365:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  365 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21440	    120	   2128	  23688	   5c88	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+15:42:31 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:370:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  370 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21500	    120	   2128	  23748	   5cc4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+15:43:40 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:370:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  370 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+16:20:48 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:05:51 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:07:58 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:370:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  370 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:08:38 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:09:44 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:370:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  370 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21496	    120	   2128	  23744	   5cc0	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:10:37 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:370:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  370 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21496	    120	   2128	  23744	   5cc0	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:11:16 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21496	    120	   2128	  23744	   5cc0	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:11:54 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:370:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  370 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:13:11 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:13:49 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21488	    120	   2128	  23736	   5cb8	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:17:17 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:18:01 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:19:29 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:20:46 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:33:09 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:35:39 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:38:47 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21212	    120	   2128	  23460	   5ba4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:39:45 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21220	    120	   2128	  23468	   5bac	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:40:28 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:371:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  371 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21484	    120	   2128	  23732	   5cb4	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:43:58 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:372:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  372 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:379:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  379 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:384:25: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  384 |         lcd_send_string(meuTexto);
+      |                         ^~~~~~~~
+      |                         |
+      |                         uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21600	    120	   2128	  23848	   5d28	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:44:13 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21600	    120	   2128	  23848	   5d28	LCD2.elf
+Finished building: default.size.stdout
+ 
+17:45:20 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:375:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  375 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:384:29: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  384 |             lcd_send_string(meuTexto);
+      |                             ^~~~~~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:390:25: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  390 |         lcd_send_string(meuTexto);
+      |                         ^~~~~~~~
+      |                         |
+      |                         uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21616	    120	   2128	  23864	   5d38	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:46:05 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:375:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  375 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:384:29: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  384 |             lcd_send_string(meuTexto);
+      |                             ^~~~~~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:390:25: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  390 |         lcd_send_string(meuTexto);
+      |                         ^~~~~~~~
+      |                         |
+      |                         uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21616	    120	   2128	  23864	   5d38	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:48:43 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:375:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  375 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:384:29: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  384 |             lcd_send_string(meuTexto);
+      |                             ^~~~~~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:390:25: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  390 |         lcd_send_string(meuTexto);
+      |                         ^~~~~~~~
+      |                         |
+      |                         uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21616	    120	   2128	  23864	   5d38	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:49:19 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:165:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  165 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:167:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  167 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:375:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  375 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:384:29: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  384 |             lcd_send_string(meuTexto);
+      |                             ^~~~~~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:390:25: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  390 |         lcd_send_string(meuTexto);
+      |                         ^~~~~~~~
+      |                         |
+      |                         uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21624	    120	   2128	  23872	   5d40	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:53:35 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-size   LCD2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21624	    120	   2128	  23872	   5d40	LCD2.elf
+Finished building: default.size.stdout
+ 
