@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define LED_PLACA_Pin GPIO_PIN_5
 #define LED_PLACA_GPIO_Port GPIOA
+#define motor_Pin GPIO_PIN_6
+#define motor_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

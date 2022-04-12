@@ -24,16 +24,19 @@
 #include<stdint.h>
 #include <string.h>
 
+//Esp 32
 #define buffer 100
-
-uint8_t flag_transmit, flag_receive, conta;
-uint8_t Data_AT [7][50] = {"AT\r\n","AT+CWMODE=3\r\n","AT+CWJAP=\"TESTE\",\"12345678\"\r\n","AT+CIPMUX=0\r\n","AT+CIPMODE=1\r\n","AT+CIPSTARTEX=\"UDP\",\"192.168.4.1\",8696,8696\r\n","AT+CIPSEND\r\n"};
+uint8_t flag_transmit, flag_receive, conta = 0;
+uint8_t Data_AT [7][50] = {"AT\r\n","AT+CWMODE=3\r\n","AT+CWJAP=\"TESTE\",\"12345678\"\r\n","AT+CIPMUX=0\r\n","AT+CIPMODE=1\r\n","AT+CIPSTART=\"UDP\",\"192.168.4.1\",8696,8696\r\n","AT+CIPSEND\r\n"};
 uint8_t Rec[buffer];
-uint8_t Dado[5];
-uint8_t	send = 0;
+uint8_t Dado;
+uint8_t	send;
 
-//"+++","AT+CIPCLOSE\r\n"
-//EX
+//Motor
+uint32_t entrada;
+float tensao;
+uint32_t cor;
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +54,11 @@ uint8_t	send = 0;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
+
+TIM_HandleTypeDef htim1;
+
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart4;
 
@@ -63,12 +71,20 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART4_UART_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+//void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin){
+//	HAL_GPIO_TogglePin(motor_GPIO_Port, motor_Pin);
+//}
+
+//esp
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
         flag_transmit = 0;
@@ -77,15 +93,16 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
            HAL_UART_Transmit(&huart2, &Rec[conta], 1, 10);
-
+        // se a ultima coisa tranferida for (>)
         if(Rec[conta]== '>'){
-                HAL_UART_Receive_IT(&huart4, Dado, 5);
-
+        	    // pronto para redeber alguma coisa de 5 bytes
+                HAL_UART_Receive_IT(&huart4, &Dado, 1);
+        // se não
         }else{
                 conta++;
                 if(conta>=buffer)
                                 conta=0;
-
+                //continua recebendo os comandos AT que esa em (Rec[conta])
                 HAL_UART_Receive_IT(&huart4, &Rec[conta], 1);
         }
 
@@ -93,9 +110,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 }
 
+
 // Retorna o valor do ultimo byte recebido: se for '>' quer dizer que a comunicação está estabelecida
 uint8_t Esp_Comandos(void){
-
+	//contador para controlar os comandos AT que são 7
 	for(int i=0; i<7;i++){
 
 
@@ -129,6 +147,7 @@ uint8_t Esp_Comandos(void){
 
 	return 0;
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -138,7 +157,7 @@ uint8_t Esp_Comandos(void){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-uint8_t Mensagem[] = "aaa\r\n";
+uint8_t Mensagem;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -161,6 +180,8 @@ uint8_t Mensagem[] = "aaa\r\n";
   MX_GPIO_Init();
   MX_USART4_UART_Init();
   MX_USART2_UART_Init();
+  MX_ADC1_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   //remove_Busy();
 
@@ -177,18 +198,44 @@ uint8_t Mensagem[] = "aaa\r\n";
   		  HAL_Delay (250);
   	  }
     }
+
+    //ADC_ChannelConfTypeDef sConfig = {0};
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  while (1){
+
+
+
+	  HAL_ADC_Start(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, 100);
+	  entrada = HAL_ADC_GetValue(&hadc1);
+
+	   tensao = entrada * (5/4095.0);
+
 	  if (send)
 	  {
-		  HAL_UART_Transmit_IT(&huart4, Mensagem, 5);
+		  HAL_UART_Transmit_IT(&huart4, &Mensagem, 1);
 		  HAL_Delay(1000);
 		  send=0;
 	  }
+
+	  switch(Dado){
+
+	  case 1:
+		  HAL_GPIO_WritePin(motor_GPIO_Port, motor_Pin, 1);
+		  HAL_Delay(2000);
+		  HAL_GPIO_WritePin(motor_GPIO_Port, motor_Pin, 0);
+		  Dado=0;
+		 break;
+	  case 2:
+		  HAL_GPIO_WritePin(motor_GPIO_Port, motor_Pin, 0);
+		  Dado=0;
+		 break;
+	  }
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -215,7 +262,13 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV1;
+  RCC_OscInitStruct.PLL.PLLN = 8;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -224,14 +277,118 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.LowPowerAutoPowerOff = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_1CYCLE_5;
+  hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_1CYCLE_5;
+  hadc1.Init.OversamplingMode = DISABLE;
+  hadc1.Init.TriggerFrequencyMode = ADC_TRIGGER_FREQ_HIGH;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLINGTIME_COMMON_1;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 0;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 65535;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
+
 }
 
 /**
@@ -328,10 +485,21 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED_PLACA_GPIO_Port, LED_PLACA_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(motor_GPIO_Port, motor_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LED_PLACA_Pin */
   GPIO_InitStruct.Pin = LED_PLACA_Pin;
@@ -339,6 +507,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_PLACA_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : motor_Pin */
+  GPIO_InitStruct.Pin = motor_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(motor_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 
 }
 
