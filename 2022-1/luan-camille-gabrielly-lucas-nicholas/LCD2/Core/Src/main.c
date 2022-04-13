@@ -58,6 +58,7 @@ uint8_t received_data=0;
 uint16_t teste;
 uint8_t flag=0, verificacao=0;
 uint16_t flagDILSON=0;
+uint8_t meuTexto[21];
 
 //lcd
 uint16_t app;
@@ -179,42 +180,70 @@ void convert_code (uint32_t code)
 	{
 		case (0x807fa55a):
 			recebeu = DESLIGADO;
+
 			break;
 
 		case (0x807fb44b):
 			recebeu = BOTAO_1;
+			sprintf((char*)meuTexto,"Sentido: horario    ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fcc33):
 			recebeu = BOTAO_2;
+			sprintf((char*)meuTexto,"Sentido: antihorario   ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fd827):
 			recebeu = BOTAO_3;
+			sprintf((char*)meuTexto,"Sentido: antihorario   ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807f9867):
 			recebeu = BOTAO_4;
+			sprintf((char*)meuTexto,"Sentido: horario    ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807f8c73):
 			recebeu = BOTAO_5;
+			sprintf((char*)meuTexto,"Sentido: horario    ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fbd42):
 			recebeu = BOTAO_6;
+			sprintf((char*)meuTexto,"Sentido: antihorario   ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807f8877):
 			recebeu = BOTAO_7;
+			sprintf((char*)meuTexto,"Sentido: antihorario   ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807f9c63):
 			recebeu = BOTAO_8;
+			sprintf((char*)meuTexto,"Sentido: antihorario   ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fad52):
 			recebeu = BOTAO_9;
+			sprintf((char*)meuTexto,"Sentido: horario    ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807f817e):
@@ -233,18 +262,30 @@ void convert_code (uint32_t code)
 
 		case (0x807f916e):
 			recebeu = SETA_ESQUERDA;
+			sprintf((char*)meuTexto,"Sentido: horario    ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fb14e):
 			recebeu = SETA_CIMA;
+			sprintf((char*)meuTexto,"Sentido: horario    ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fe11e):
 			recebeu = SETA_DIREITA;
+			sprintf((char*)meuTexto,"Sentido: antihorario   ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fa15e):
 			recebeu = ASTERISCO;
+			sprintf((char*)meuTexto,"Sentido: parado   ");
+			lcd_put_cur(2,0);
+			lcd_send_string(meuTexto);
 			break;
 
 		case (0x807fa956):
@@ -270,7 +311,7 @@ void convert_code (uint32_t code)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint8_t meuTexto[21];
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -336,35 +377,33 @@ int main(void)
 		  }
 
 
-		  HAL_NVIC_DisableIRQ(EXTI4_15_IRQn);
+		  //HAL_NVIC_DisableIRQ(EXTI4_15_IRQn);
 
-		  HAL_Delay(150);
-		  packet_size = LoRa_receive(&myLoRa, &received_data, 1);
+		  /*HAL_Delay(150);
+		  packet_size = LoRa_receive(&myLoRa, &received_data, 1);*/
 
-		  HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
+		  //HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 
-		  if(packet_size!=0)
+		  /*if(packet_size!=0)
 			{
 				  sprintf((char*)meuTexto,"Corrente: %d mA   ", received_data);
-				  lcd_put_cur(2,0);
+				  lcd_put_cur(1,0);
 				  lcd_send_string(meuTexto);
-			}
+			}*/
 
 			if(cont == 0)
 			{
-
-
 				sprintf((char*)meuTexto,"Desligado");
-				lcd_put_cur(1,0);
+				lcd_put_cur(0,0);
 				lcd_send_string(meuTexto);
 				cont=0;
 			}
 
 			else
 			{
-					sprintf((char*)meuTexto,"Ligado   ");
-					lcd_put_cur(1,0);
-					lcd_send_string(meuTexto);
+				sprintf((char*)meuTexto,"Ligado   ");
+				lcd_put_cur(0,0);
+				lcd_send_string(meuTexto);
 			}
 
     /* USER CODE END WHILE */

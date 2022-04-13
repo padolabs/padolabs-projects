@@ -1,75 +1,147 @@
-rm -rf ./libs/LoRa.d ./libs/LoRa.o ./libs/main.d ./libs/main.o
-rm -rf ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.o ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.d ./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.o
-rm -rf ./Core/Startup/startup_stm32g0b1retx.d ./Core/Startup/startup_stm32g0b1retx.o
-rm -rf ./Core/Src/lcd20x4.d ./Core/Src/lcd20x4.o ./Core/Src/stm32g0xx_hal_msp.d ./Core/Src/stm32g0xx_hal_msp.o ./Core/Src/stm32g0xx_it.d ./Core/Src/stm32g0xx_it.o ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/system_stm32g0xx.d ./Core/Src/system_stm32g0xx.o
-rm -rf LCD2.bin LCD2.elf LCD2.list default.size.stdout
- 
-
-16:48:47 Build Finished. 0 errors, 0 warnings. (took 180ms)
-
-16:48:47 **** Incremental Build of configuration Debug for project LCD2 ****
+17:05:55 **** Incremental Build of configuration Debug for project LCD2 ****
 make -j8 all 
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.o"
-arm-none-eabi-gcc "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.d" -MT"Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.o"
-arm-none-eabi-gcc -mcpu=cortex-m0plus -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32g0b1retx.d" -MT"Core/Startup/startup_stm32g0b1retx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32g0b1retx.o" "../Core/Startup/startup_stm32g0b1retx.s"
-arm-none-eabi-gcc "../Core/Src/LoRa.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/LoRa.d" -MT"Core/Src/LoRa.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/LoRa.o"
-In file included from ../Core/Src/LoRa.c:1:
-../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
-    1 | // -------------------------------------------------- \\
-      | ^
-arm-none-eabi-gcc "../Core/Src/lcd20x4.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd20x4.d" -MT"Core/Src/lcd20x4.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd20x4.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32g0xx_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32g0xx_hal_msp.d" -MT"Core/Src/stm32g0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32g0xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32g0xx_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32g0xx_it.d" -MT"Core/Src/stm32g0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32g0xx_it.o"
 In file included from ../Core/Src/main.c:28:
 ../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
     1 | // -------------------------------------------------- \\
       | ^
 ../Core/Src/main.c: In function 'recebendo_data':
-../Core/Src/main.c:144:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
-  144 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+../Core/Src/main.c:145:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  145 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
       |  ^~~~~
-../Core/Src/main.c:146:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
-  146 |   for(int i = 0; i < 32; i++)
+../Core/Src/main.c:147:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  147 |   for(int i = 0; i < 32; i++)
       |   ^~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:350:23: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
-  350 |       lcd_send_string(meuTexto);
-      |                       ^~~~~~~~
-      |                       |
-      |                       uint8_t * {aka unsigned char *}
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:190:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  190 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
 In file included from ../Core/Src/main.c:29:
 ../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    39 | void lcd_send_string (char *str);  // send string to the lcd
       |                       ~~~~~~^~~
-../Core/Src/main.c:359:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
-  359 |     lcd_send_string(meuTexto);
+../Core/Src/main.c:197:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  197 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:204:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  204 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:211:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  211 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:218:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  218 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:225:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  225 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:232:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  232 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:239:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  239 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:246:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  246 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:267:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  267 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:274:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  274 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:281:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  281 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:288:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  288 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:400:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  400 |     lcd_send_string(meuTexto);
       |                     ^~~~~~~~
       |                     |
       |                     uint8_t * {aka unsigned char *}
-arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
 In file included from ../Core/Src/main.c:29:
 ../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    39 | void lcd_send_string (char *str);  // send string to the lcd
       |                       ~~~~~~^~~
-../Core/Src/main.c:367:22: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
-  367 |      lcd_send_string(meuTexto);
+../Core/Src/main.c:408:22: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  408 |      lcd_send_string(meuTexto);
       |                      ^~~~~~~~
       |                      |
       |                      uint8_t * {aka unsigned char *}
@@ -77,8 +149,43 @@ In file included from ../Core/Src/main.c:29:
 ../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    39 | void lcd_send_string (char *str);  // send string to the lcd
       |                       ~~~~~~^~~
-arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
-arm-none-eabi-gcc "../Core/Src/system_stm32g0xx.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32g0xx.d" -MT"Core/Src/system_stm32g0xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32g0xx.o"
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:279:50: warning: 'Sentido: anti horario   ' directive writing 24 bytes into a region of size 21 [-Wformat-overflow=]
+  279 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:279:4: note: 'sprintf' output 25 bytes into a destination of size 21
+  279 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:202:50: warning: 'Sentido: anti horario   ' directive writing 24 bytes into a region of size 21 [-Wformat-overflow=]
+  202 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:202:4: note: 'sprintf' output 25 bytes into a destination of size 21
+  202 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:195:50: warning: 'Sentido: anti horario   ' directive writing 24 bytes into a region of size 21 [-Wformat-overflow=]
+  195 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:195:4: note: 'sprintf' output 25 bytes into a destination of size 21
+  195 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:223:50: warning: 'Sentido: anti horario   ' directive writing 24 bytes into a region of size 21 [-Wformat-overflow=]
+  223 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:223:4: note: 'sprintf' output 25 bytes into a destination of size 21
+  223 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:237:50: warning: 'Sentido: anti horario   ' directive writing 24 bytes into a region of size 21 [-Wformat-overflow=]
+  237 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:237:4: note: 'sprintf' output 25 bytes into a destination of size 21
+  237 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:230:50: warning: 'Sentido: anti horario   ' directive writing 24 bytes into a region of size 21 [-Wformat-overflow=]
+  230 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:230:4: note: 'sprintf' output 25 bytes into a destination of size 21
+  230 |    sprintf((char*)meuTexto,"Sentido: anti horario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LCD2.elf
  
@@ -86,24 +193,632 @@ arm-none-eabi-size   LCD2.elf
 arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
 arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
    text	   data	    bss	    dec	    hex	filename
-  21588	    120	   1984	  23692	   5c8c	LCD2.elf
+  21988	    120	   2000	  24108	   5e2c	LCD2.elf
 Finished building: default.size.stdout
  
 Finished building: LCD2.bin
  
 Finished building: LCD2.list
  
-16:48:49 **** Incremental Build of configuration Debug for project LCD2 ****
+17:05:57 **** Incremental Build of configuration Debug for project LCD2 ****
 make -j8 all 
 arm-none-eabi-size   LCD2.elf 
    text	   data	    bss	    dec	    hex	filename
-  21588	    120	   1984	  23692	   5c8c	LCD2.elf
+  21988	    120	   2000	  24108	   5e2c	LCD2.elf
 Finished building: default.size.stdout
  
-16:48:51 **** Incremental Build of configuration Debug for project LCD2 ****
+17:07:29 **** Incremental Build of configuration Debug for project LCD2 ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:145:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  145 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:147:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  147 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:190:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  190 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:197:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  197 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:204:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  204 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:211:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  211 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:218:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  218 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:225:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  225 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:232:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  232 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:239:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  239 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:246:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  246 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:267:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  267 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:274:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  274 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:281:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  281 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:288:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  288 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:400:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  400 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:408:22: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  408 |      lcd_send_string(meuTexto);
+      |                      ^~~~~~~~
+      |                      |
+      |                      uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:279:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  279 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:279:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  279 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:202:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  202 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:202:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  202 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:195:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  195 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:195:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  195 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:223:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  223 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:223:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  223 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:237:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  237 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:237:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  237 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:230:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  230 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:230:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  230 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
 arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
    text	   data	    bss	    dec	    hex	filename
-  21588	    120	   1984	  23692	   5c8c	LCD2.elf
+  21988	    120	   2000	  24108	   5e2c	LCD2.elf
 Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:09:35 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:145:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  145 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:147:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  147 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:190:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  190 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:197:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  197 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:204:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  204 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:211:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  211 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:218:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  218 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:225:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  225 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:232:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  232 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:239:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  239 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:246:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  246 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:267:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  267 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:274:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  274 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:281:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  281 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:288:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  288 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:391:23: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  391 |       lcd_send_string(meuTexto);
+      |                       ^~~~~~~~
+      |                       |
+      |                       uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:398:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  398 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:406:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  406 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:279:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  279 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:279:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  279 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:202:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  202 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:202:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  202 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:195:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  195 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:195:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  195 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:223:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  223 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:223:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  223 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:237:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  237 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:237:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  237 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:230:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  230 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:230:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  230 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  22052	    120	   2000	  24172	   5e6c	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
+ 
+17:11:09 **** Incremental Build of configuration Debug for project LCD2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G0B1xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:28:
+../Core/Inc/LoRa.h:1:1: warning: multi-line comment [-Wcomment]
+    1 | // -------------------------------------------------- \\
+      | ^
+../Core/Src/main.c: In function 'recebendo_data':
+../Core/Src/main.c:145:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  145 |  while(HAL_GPIO_ReadPin(infra_GPIO_Port, infra_Pin)==1);
+      |  ^~~~~
+../Core/Src/main.c:147:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  147 |   for(int i = 0; i < 32; i++)
+      |   ^~~
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:190:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  190 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:197:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  197 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:204:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  204 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:211:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  211 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:218:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  218 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:225:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  225 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:232:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  232 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:239:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  239 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:246:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  246 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:267:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  267 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:274:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  274 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:281:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  281 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:288:20: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  288 |    lcd_send_string(meuTexto);
+      |                    ^~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:398:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  398 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c:406:21: warning: pointer targets in passing argument 1 of 'lcd_send_string' differ in signedness [-Wpointer-sign]
+  406 |     lcd_send_string(meuTexto);
+      |                     ^~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:29:
+../Core/Inc/lcd20x4.h:39:29: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   39 | void lcd_send_string (char *str);  // send string to the lcd
+      |                       ~~~~~~^~~
+../Core/Src/main.c: In function 'convert_code':
+../Core/Src/main.c:279:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  279 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:279:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  279 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:202:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  202 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:202:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  202 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:195:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  195 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:195:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  195 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:223:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  223 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:223:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  223 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:237:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  237 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:237:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  237 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:230:50: warning: 'Sentido: antihorario   ' directive writing 23 bytes into a region of size 21 [-Wformat-overflow=]
+  230 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |                             ~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:230:4: note: 'sprintf' output 24 bytes into a destination of size 21
+  230 |    sprintf((char*)meuTexto,"Sentido: antihorario   ");
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "LCD2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/luanmarcal/Documentos/repositorios-git/padolabs-projects/2022-1/luan-camille-gabrielly-lucas-nicholas/LCD2/STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD2.elf
+ 
+arm-none-eabi-size   LCD2.elf 
+arm-none-eabi-objdump -h -S  LCD2.elf  > "LCD2.list"
+arm-none-eabi-objcopy  -O binary  LCD2.elf  "LCD2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  21696	    120	   2000	  23816	   5d08	LCD2.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD2.bin
+ 
+Finished building: LCD2.list
  
