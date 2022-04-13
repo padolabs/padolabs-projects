@@ -19,6 +19,7 @@
 #include "LCD1602.h"
 
 enum senha{INCORRETA, CORRETA};
+enum function{CLEAR, ADD_PASSWORD};
 
 void app_init();
 void app_run();
