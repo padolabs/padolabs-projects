@@ -1410,3 +1410,8 @@
 2022-04-12 14:59:25,812 [INFO] OpenFileManager:333 - Restore cursor
 2022-04-12 15:13:21,376 [INFO] NvicIntPanel:96 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,548x265,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
 2022-04-12 17:31:59,198 [INFO] NvicIntPanel:96 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2022-04-13 11:19:10,078 [INFO] Activator:177 - 
+
+
+2022-04-13 11:19:10,080 [INFO] Activator:178 - !SESSION log4j initialized
+2022-04-13 11:19:16,567 [ERROR] AnalyticsContext:980 - The ST intranet updater server is unknown: mcucrossselector.codex.cro.st.com
