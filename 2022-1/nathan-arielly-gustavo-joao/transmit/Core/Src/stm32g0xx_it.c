@@ -55,6 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern SPI_HandleTypeDef hspi1;
 extern TIM_HandleTypeDef htim1;
 /* USER CODE BEGIN EV */
 
@@ -141,6 +142,49 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI line 0 and line 1 interrupts.
+  */
+void EXTI0_1_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI0_1_IRQn 0 */
+
+  /* USER CODE END EXTI0_1_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(R1_Pin);
+  /* USER CODE BEGIN EXTI0_1_IRQn 1 */
+
+  /* USER CODE END EXTI0_1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line 2 and line 3 interrupts.
+  */
+void EXTI2_3_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI2_3_IRQn 0 */
+
+  /* USER CODE END EXTI2_3_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(C2_Pin);
+  /* USER CODE BEGIN EXTI2_3_IRQn 1 */
+
+  /* USER CODE END EXTI2_3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line 4 to 15 interrupts.
+  */
+void EXTI4_15_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI4_15_IRQn 0 */
+
+  /* USER CODE END EXTI4_15_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(C1_Pin);
+  HAL_GPIO_EXTI_IRQHandler(C4_Pin);
+  /* USER CODE BEGIN EXTI4_15_IRQn 1 */
+
+  /* USER CODE END EXTI4_15_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 break, update, trigger and commutation interrupts.
   */
 void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
@@ -166,6 +210,20 @@ void TIM1_CC_IRQHandler(void)
   /* USER CODE BEGIN TIM1_CC_IRQn 1 */
 
   /* USER CODE END TIM1_CC_IRQn 1 */
+}
+
+/**
+  * @brief This function handles SPI1/I2S1 Interrupt.
+  */
+void SPI1_IRQHandler(void)
+{
+  /* USER CODE BEGIN SPI1_IRQn 0 */
+
+  /* USER CODE END SPI1_IRQn 0 */
+  HAL_SPI_IRQHandler(&hspi1);
+  /* USER CODE BEGIN SPI1_IRQn 1 */
+
+  /* USER CODE END SPI1_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

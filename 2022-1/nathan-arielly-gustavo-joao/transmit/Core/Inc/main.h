@@ -58,12 +58,21 @@ uint8_t nrf24_ReadReg (uint8_t Reg);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define C4_Pin GPIO_PIN_12
+#define C4_GPIO_Port GPIOC
+#define C4_EXTI_IRQn EXTI4_15_IRQn
+#define R1_Pin GPIO_PIN_0
+#define R1_GPIO_Port GPIOC
 #define led_Pin GPIO_PIN_5
 #define led_GPIO_Port GPIOA
 #define LCD_D6_Pin GPIO_PIN_7
 #define LCD_D6_GPIO_Port GPIOA
 #define LCD_D5_Pin GPIO_PIN_0
 #define LCD_D5_GPIO_Port GPIOB
+#define R2_Pin GPIO_PIN_2
+#define R2_GPIO_Port GPIOB
+#define R4_Pin GPIO_PIN_15
+#define R4_GPIO_Port GPIOB
 #define LCD_RW_Pin GPIO_PIN_9
 #define LCD_RW_GPIO_Port GPIOA
 #define LCD_D4_Pin GPIO_PIN_7
@@ -72,10 +81,21 @@ uint8_t nrf24_ReadReg (uint8_t Reg);
 #define CE_GPIO_Port GPIOD
 #define CSN_Pin GPIO_PIN_9
 #define CSN_GPIO_Port GPIOD
+#define C3_Pin GPIO_PIN_0
+#define C3_GPIO_Port GPIOD
+#define C3_EXTI_IRQn EXTI0_1_IRQn
+#define C2_Pin GPIO_PIN_3
+#define C2_GPIO_Port GPIOD
+#define C2_EXTI_IRQn EXTI2_3_IRQn
+#define C1_Pin GPIO_PIN_4
+#define C1_GPIO_Port GPIOD
+#define C1_EXTI_IRQn EXTI4_15_IRQn
 #define LCD_E_Pin GPIO_PIN_4
 #define LCD_E_GPIO_Port GPIOB
 #define LCD_RS_Pin GPIO_PIN_5
 #define LCD_RS_GPIO_Port GPIOB
+#define R3_Pin GPIO_PIN_6
+#define R3_GPIO_Port GPIOB
 #define LCD_D7_Pin GPIO_PIN_10
 #define LCD_D7_GPIO_Port GPIOC
 /* USER CODE BEGIN Private defines */
