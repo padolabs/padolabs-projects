@@ -1,0 +1,11 @@
+main.c:88:6:HAL_UART_TxCpltCallback	16	static
+main.c:93:6:HAL_UART_RxCpltCallback	16	static
+main.c:115:9:Esp_Comandos	24	static
+main.c:157:5:main	16	static
+main.c:250:6:SystemClock_Config	96	static
+main.c:295:13:MX_ADC1_Init	24	static
+main.c:352:13:MX_TIM1_Init	40	static
+main.c:399:13:MX_USART2_UART_Init	8	static
+main.c:447:13:MX_USART4_UART_Init	8	static
+main.c:483:13:MX_GPIO_Init	48	static
+main.c:532:6:Error_Handler	8	static,ignoring_inline_asm
