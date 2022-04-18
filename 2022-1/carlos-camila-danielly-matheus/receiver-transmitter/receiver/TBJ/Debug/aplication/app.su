@@ -1,0 +1,4 @@
+app.c:25:7:HAL_TIM_PeriodElapsedCallback	16	static
+app.c:36:7:convic	16	static
+app.c:48:7:app_init	8	static
+app.c:73:7:app_run	16	static
